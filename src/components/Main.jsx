@@ -42,6 +42,9 @@ export default function Main() {
                                 <p className="card-text">Nazionalità: {act.nationality}</p>
                                 <p className="card-text">Biografia: {act.biography}</p>
                                 <p className="card-text">Riconoscimenti: {act.awards}</p>
+                                <p className="card-text">
+                                    Film più famosi: {act.most_famous_movies.join(", ")}
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -65,6 +68,10 @@ export default function Main() {
                                 <p className="card-text">Nazionalità: {act.nationality}</p>
                                 <p className="card-text">Biografia: {act.biography}</p>
                                 <p className="card-text">Riconoscimenti: {act.awards}</p>
+                                <p className="card-text">
+                                    Film più famosi: {act.known_for.join(", ")}
+                                </p>
+
                             </div>
                         </div>
                     </div>
