@@ -40,6 +40,18 @@ export default function Main() {
                                     <strong>Riconoscimenti:</strong>{" "}
                                     {Array.isArray(person.awards) ? person.awards.join(", ") : person.awards}
                                 </p>
+                                {person.most_famous_movies && (
+                                    <p className="card-text">
+                                        <strong>Film più famosi:</strong>{" "}
+                                        {person.most_famous_movies.join(", ")}
+                                    </p>
+                                )}
+                                {person.known_for && (
+                                    <p className="card-text">
+                                        <strong>Film più famosi:</strong>{" "}
+                                        {person.known_for.join(", ")}
+                                    </p>
+                                )}
                             </div>
                         </div>
                     </div>
