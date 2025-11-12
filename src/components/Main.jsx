@@ -3,22 +3,37 @@ import axios from "axios";
 
 
 export default function Main() {
-    const [acts, setActs] = useState([]);
+    const [actresses, setActresses] = useState([]);
+    const [actors, setActors] = useState([]);
+
     const actressApi = "https://lanciweb.github.io/demo/api/actresses/";
+    const actorApi = "https://lanciweb.github.io/demo/api/actors/";
 
     useEffect(() => {
+        // Chiamata API per le attrici
         axios
             .get(actressApi)
-            .then((res) => setActs(res.data))
+            .then((res) => {
+                console.log(res.data);
+                setActresses(res.data);
+            })
+            .catch((err) => console.error(err));
+
+        // Chiamata API per gli attori
+        axios
+            .get(actressApi)
+            .then((res) => {
+                console.log(res.data);
+                setActresses(res.data);
+            })
             .catch((err) => console.error(err));
     }, []);
 
     return (
         <div className="container my-4">
             <h1 className="text-center mb-4">Lista Attrici</h1>
-
             <div className="row">
-                {acts.map((act, index) => (
+                {actresses.map((act, index) => (
                     <div key={index} className="col-md-4 mb-4">
                         <div className="card actress-card h-100 text-center">
                             <img
