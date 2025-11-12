@@ -1,28 +1,42 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 
+
 export default function Main() {
     const [acts, setActs] = useState([]);
+    const actressApi = "https://lanciweb.github.io/demo/api/actresses/";
 
-    useEffect(() => { // add useEfffect to catch the api contenent 
+    useEffect(() => {
         axios
-            .get("https://lanciweb.github.io/demo/api/actresses/")
+            .get(actressApi)
             .then((res) => setActs(res.data))
             .catch((err) => console.error(err));
     }, []);
 
-    return ( // Starting to create the card with required infos
-        <div>
-            {acts.map((act, index) => (
-                <div key={index}>
-                    <h3>{act.name}</h3>
-                    <img src={act.image} alt={act.name} width="150" />
-                    <p>Year of birth: {act.birth_year}</p>
-                    <p>Nationality: {act.nationality}</p>
-                    <p>Biography: {act.biography}</p>
-                    <p>Awards: {act.awards}</p>
-                </div>
-            ))}
+    return (
+        <div className="container my-4">
+            <h1 className="text-center mb-4">Lista Attrici</h1>
+
+            <div className="row">
+                {acts.map((act, index) => (
+                    <div key={index} className="col-md-4 mb-4">
+                        <div className="card actress-card h-100 text-center">
+                            <img
+                                src={act.image}
+                                alt={act.name}
+                                className="card-img-top actress-img"
+                            />
+                            <div className="card-body">
+                                <h5 className="card-title">{act.name}</h5>
+                                <p className="card-text">Anno di nascita: {act.birth_year}</p>
+                                <p className="card-text">Nazionalità: {act.nationality}</p>
+                                <p className="card-text">Biografia: {act.biography}</p>
+                                <p className="card-text">Riconoscimenti: {act.awards}</p>
+                            </div>
+                        </div>
+                    </div>
+                ))}
+            </div>
         </div>
     );
 }
