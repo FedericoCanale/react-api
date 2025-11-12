@@ -1,28 +1,30 @@
-/* Stile per le card delle attrici */
-.actress-card {
+.card {
+    border: none;
     border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    overflow: hidden;
+    color: white;
 }
 
 
-/* Immagini adattate e con angoli arrotondati */
-.actress-img {
+.actress-card {
+    background-color: #e64c7d;
+}
+
+
+.actor-card {
+    background-color: #0074d9;
+}
+
+
+.actress-img,
+.actor-img {
+    width: 100%;
     height: 300px;
     object-fit: cover;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
 }
 
-/* Testo della card */
-.card-body {
-    background-color: #e8a9e7;
-}
 
-.card-text {
-    color: rgb(37, 34, 34);
-}
-
-.card-title {
-    color: rgb(35, 32, 34);
+.card-body-actress,
+.card-body-actor {
+    padding: 1rem;
 }
